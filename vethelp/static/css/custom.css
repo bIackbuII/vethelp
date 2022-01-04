@@ -1,0 +1,51 @@
+header a.nav-link {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+header a:hover.nav-link {
+    color: rgb(255, 255, 255);
+}
+
+header a:visited.nav-link {
+    color: rgb(255, 255, 255);
+}
+
+header .navbar a.navbar-brand {
+    color: rgb(255, 255, 255);
+}
+
+header .navbar a:hover.navbar-brand {
+    color: rgb(255, 255, 255);
+}
+
+header .navbar a:visited.navbar-brand {
+    color: rgb(255, 255, 255);
+}
+
+header nav.navbar.navbar-light {
+    background-color: #6a62a2;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.search{
+    background-color: #6a62a2;
+    border-radius: 10px;
+    margin: 50px auto;
+    width: 70%;
+    height: 50px;
+}
+
+.map{
+    background-color: #6a62a2;
+    border-radius: 10px;
+    margin: auto;
+    width: 70%;
+    height: 350px
+}
+
+.nav-pills a.nav-link.active{
+    background-color: #e64c3c;
+}
