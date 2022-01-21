@@ -6,7 +6,14 @@ SECRET_KEY = '3k-)srzuu9x+h)p^b6-3%$fa2eqg1bwcc@l(ep84%3t!09884b'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '[::1]',
+    'testserver',
+    'www.biackbuii.pythonanywhere.com/',
+    'biackbuii.pythonanywhere.com/'
+]
 
 INSTALLED_APPS = [
     'places.apps.PlacesConfig',
