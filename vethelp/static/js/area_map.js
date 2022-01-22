@@ -7,15 +7,22 @@ function init () {
         }, {
             searchControlProvider: 'yandex#search'
         });
-    area_clusterer = new ymaps.Clusterer({clusterDisableClickZoom: true})
+    area_clusterer = new ymaps.Clusterer({
+        clusterDisableClickZoom: true,
+        preset: 'islands#darkblueClusterIcons'
+    })
 
     for (let i = 0; i < areas_points.length; i++) {
         var point = areas_points[i];
-        var AreaMark = new ymaps.Placemark([point.y, point.x],
+        var AreaMark = new ymaps.Placemark(
+        [point.y, point.x],
         {
-            content: 'Ветеренарная Клиника',
+            balloonContentHeader: 'Площадка № ' + (i+1),
             balloonContent: "<b>Оборудование:</b><br/>" + point.elements + '<br/>' + "<b>Освещение:</b><br/>" + point.lighting + '<br/>' + "<b>Ограждение:</b><br/>" + point.fencing,
             clusterCaption:'Площадка № ' + (i+1)
+        },
+        {
+            preset: 'islands#blueDogIcon'
         });
         area_clusterer.add(AreaMark)
     }

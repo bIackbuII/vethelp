@@ -37,6 +37,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'vethelp.urls'
 
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
