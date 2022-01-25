@@ -4,4 +4,18 @@
     <div class='map'>
         <div id="clinic_map"></div>
     </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ветеринарные учреждения</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for clinic in clinics %}
+                <tr>
+                    <td><a href="{% url 'places:clinic' clinic.id %}">{{clinic.title}}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

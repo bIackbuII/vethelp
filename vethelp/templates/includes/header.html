@@ -2,7 +2,7 @@
 {% with request.resolver_match.view_name as view_name %} 
   <nav class="navbar navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="">
+      <a class="navbar-brand" href="{%url 'places:info'%}">
         <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
         <span>VetHelp</span>
       </a>
@@ -11,11 +11,28 @@
           <a class="nav-link {% if view_name  == 'places:clinics' %}active{% endif %}" href="{% url 'places:clinics' %}">Ветеринарные учреждения</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {% if view_name  == 'places:shops' %}active{% endif %}" href="{% url 'places:shops' %}">Зоомагазины</a>
+          <a class="nav-link {% if view_name  == 'places:areas' %}active{% endif %}" href="{% url 'places:areas' %}">Площадки для выгула домашних животных</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link {% if view_name  == 'places:areas' %}active{% endif %}" href="{% url 'places:areas' %}">Площадки для выгула домашних животных</a>
-        </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                Пользователь: {{ user.username }}
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'users:password_change' %}">Изменить пароль</a></li>
+                <li><a class="dropdown-item" href="{% url 'users:logout' %}">Выйти</a></li>
+              </ul>
+            </div>
+          <li>
+        {% else %}
+          <li class="nav-item"> 
+            <a class="nav-link link-light" href="{% url 'users:login' %}">Войти</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-light" href="{% url 'users:signup' %}">Регистрация</a>
+          </li>
+        {% endif %}
       </ul>
     </div>
   </nav>
